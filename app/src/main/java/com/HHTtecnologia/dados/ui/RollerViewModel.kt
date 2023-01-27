@@ -8,17 +8,14 @@ import com.HHTtecnologia.dados.entity.Dice
 class RollerViewModel : ViewModel() {
 
 
-    private val mutableDice = MutableLiveData<Dice>()
     private val mutableDiceResult = MutableLiveData<Int>()
-    public val resultLiveData : LiveData<Int> = mutableDiceResult
+    val resultLiveData: LiveData<Int> = mutableDiceResult
+    
 
-    fun updateDice(dice : Dice){
-        mutableDice.value = dice
-    }
-
-    fun roll(){
-        val sides = mutableDice.value!!.type.sides
+    fun roll(dice: Dice) {
+        val sides = dice.type.sides
         mutableDiceResult.value = IntRange(1, sides).random()
     }
+
 
 }

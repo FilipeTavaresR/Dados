@@ -4,6 +4,6 @@ import com.HHTtecnologia.dados.enum.DiceType
 
 data class Dice(
 
-    val type : DiceType
+    val type: DiceType,
 
-)
+    )
