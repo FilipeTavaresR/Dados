@@ -3,4 +3,6 @@
     <string name="roller_name">roller_name</string>
     <string name="result">result</string>
     <string name="roll">roll</string>
+    <string name="dice">Dice</string>
+    <string name="history">History</string>
 </resources>
