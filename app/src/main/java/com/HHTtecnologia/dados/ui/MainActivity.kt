@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.dice -> loadFragment(RollerFragment::class.java)
                 R.id.history -> loadFragment(HistoryFragment::class.java)
-                else -> Unit
+                else -> loadFragment(RollerFragment::class.java)
             }
             true
         }

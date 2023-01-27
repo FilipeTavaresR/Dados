@@ -30,18 +30,16 @@ class RollerFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        binding.btRoll.setOnClickListener {
-            viewModel.roll()
-        }
 
         binding.imRoller.setImageResource(dice.type.imgRes)
+        binding.tvRollerName.text = dice.type.name
 
-        viewModel.updateDice(dice)
+        binding.btRoll.setOnClickListener {
+            viewModel.roll(dice)
+        }
 
         viewModel.resultLiveData.observe(this) {
             binding.tvResult.text = it.toString()
         }
     }
-
-
 }
