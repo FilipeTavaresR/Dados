@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         rollerAdapter = RollerAdapter(this)
         viewPager2.adapter = rollerAdapter
 
-        viewBinding.bottomNav.setOnNavigationItemSelectedListener {
+        viewBinding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.dice -> loadFragment()
                 R.id.history -> loadHistoryFragment()
@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
 
     private fun loadFragment() {
         viewPager2.adapter = RollerAdapter(this)
