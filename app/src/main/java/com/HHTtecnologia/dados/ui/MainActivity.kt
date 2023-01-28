@@ -18,50 +18,29 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(viewBinding.root)
         viewPager2 = viewBinding.viewPager
         rollerAdapter = RollerAdapter(this)
         viewPager2.adapter = rollerAdapter
 
-        viewBinding.bottomNav.setOnItemSelectedListener {
+        viewBinding.bottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.dice -> loadFragment(index)
-                R.id.history -> supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, HistoryFragment())
-                    .commit()
+                R.id.dice -> loadFragment()
+                R.id.history -> loadHistoryFragment()
                 else -> Unit
             }
             true
         }
-
-//        val btNext = viewBinding.btNext
-//        val btPrevious = viewBinding.btPrevious
-//
-//        btPrevious.isEnabled = false
-//
-//        btNext.setOnClickListener {
-//            index++
-//            loadFragment(index)
-//            btPrevious.isEnabled = true
-//            if (DiceType.values().size - 1 == index)
-//                btNext.isEnabled = false
-//        }
-//
-//        btPrevious.setOnClickListener {
-//            index--
-//            loadFragment(index)
-//            btNext.isEnabled = true
-//            if (0 == index)
-//                btPrevious.isEnabled = false
-//        }
     }
 
 
-    private fun loadFragment(index: Int) {
-        val fragment = RollerFragment.newInstance(index)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .commit()
+    private fun loadFragment() {
+        viewPager2.adapter = RollerAdapter(this)
+        viewBinding.viewPager.currentItem = index
+    }
+
+    private fun loadHistoryFragment() {
+        viewPager2.adapter = HistoryAdapter(this)
+        viewBinding.viewPager.currentItem = 0
     }
 
 
