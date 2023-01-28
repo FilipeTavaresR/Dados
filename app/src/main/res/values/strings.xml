@@ -5,4 +5,7 @@
     <string name="roll">roll</string>
     <string name="dice">Dice</string>
     <string name="history">History</string>
+    <string name="preview">Preview</string>
+    <string name="next">next</string>
+    <string name="previous">previous</string>
 </resources>
