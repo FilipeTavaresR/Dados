@@ -42,4 +42,15 @@ class RollerFragment : Fragment() {
             binding.tvResult.text = it.toString()
         }
     }
+
+    companion object {
+        fun newInstance(index: Int): RollerFragment {
+            val bundle = Bundle()
+            bundle.putParcelable("DiceType", DiceType.values()[index])
+            val frag = RollerFragment()
+            frag.arguments = bundle
+            return frag
+        }
+    }
+
 }
