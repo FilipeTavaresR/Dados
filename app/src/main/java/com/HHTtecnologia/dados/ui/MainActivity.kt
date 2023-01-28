@@ -14,13 +14,11 @@ class MainActivity : AppCompatActivity() {
     private val viewBinding by viewBinding<ActivityMainBinding>(ViewBindingMethod.INFLATE)
     private var index: Int = 0
     private lateinit var viewPager2: ViewPager2
-    private lateinit var rollerAdapter: RollerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewPager2 = viewBinding.viewPager
-        rollerAdapter = RollerAdapter(this)
-        viewPager2.adapter = rollerAdapter
+        viewPager2.adapter = RollerAdapter(this)
 
         viewBinding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
